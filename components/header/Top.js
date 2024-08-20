@@ -5,8 +5,9 @@ import { RiAccountPinCircleLine, RiArrowDropDownFill } from 'react-icons/ri'
 import Link from 'next/link'
 import { useState } from 'react'
 import UserMenu from './UserMenu'
+import { useSession } from 'next-auth/react'
 export default function Top ({country}) {
-  const [loggedIn, setLoggedIn] = useState(false)
+  const { data: session } = useSession()
   const [visible, setVisible] = useState(false)
   return (
     <div className={styles.top}>
@@ -14,8 +15,8 @@ export default function Top ({country}) {
         <div></div>
         <ul className={styles.top__list}>
           <li className={styles.li}>
-            <img src={country.flag} />
-            <span>{country.name} / usd</span>
+            <img src={country?.flag} />
+            <span>{country?.name} / usd</span>
           </li>
           <li className={styles.li}>
             <MdSecurity />
@@ -38,14 +39,14 @@ export default function Top ({country}) {
             onMouseOver={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}
           >
-            {loggedIn ? (
+            {session ? (
               <li className={styles.li}>
                 <div className={styles.flex}>
                   <img
-                    src='https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'
+                    src={session.user.image}
                     alt=''
                   ></img>
-                  <span>Sasha</span>
+                  <span>{session.user.name}</span>
                   <RiArrowDropDownFill />
                 </div>
               </li>
@@ -58,7 +59,7 @@ export default function Top ({country}) {
                 </div>
               </li>
             )}
-            {visible && <UserMenu loggedIn={loggedIn} />}
+            {visible && <UserMenu session={session} />}
           </li>
         </ul>
       </div>
