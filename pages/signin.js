@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { Formik, Form } from 'formik'
 import axios from 'axios'
 import * as Yup from 'yup'
-import LoginInput from '@/components/inputs/loginInputs'
+import LoginInput from '@/components/inputs/loginInput'
 import {
   getCsrfToken,
   getProviders,
@@ -180,7 +180,7 @@ export default function signin ({ providers, callbackUrl, csrfToken }) {
                     <span className={styles.error}>{login_error}</span>
                   )}
                   <div className={styles.forgot}>
-                    <Link className={styles.noUnderline} href='./forget'>
+                    <Link className={styles.noUnderline} href='/auth/forgot'>
                       Forgot Password ?
                     </Link>
                   </div>
