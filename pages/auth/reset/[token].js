@@ -12,7 +12,6 @@ import DotLoaderSpinner from "../../../components/loaders/dotLoader";
 import axios from "axios";
 import { getSession, signIn } from "next-auth/react";
 import jwt from "jsonwebtoken";
-import { Router } from "next/router";
 export default function reset({ user_id }) {
   console.log("user_id", user_id);
   const [password, setPassword] = useState("");
