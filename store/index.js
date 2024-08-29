@@ -4,7 +4,8 @@ import {thunk} from"redux-thunk";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import cart from "./cartSlice"
-const reducers=combineReducers({cart});
+import dialog from "./DialogSlice";
+const reducers=combineReducers({cart,dialog});
 const config={
     key:'root',
     storage
