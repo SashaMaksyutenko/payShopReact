@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import Rating from "@mui/material/Rating";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/Link";
+import Link from "next/link";
 import { TbPlus, TbMinus } from "react-icons/tb";
 import { useEffect } from "react";
 import { BsHandbagFill, BsHeart } from "react-icons/bs";
@@ -24,7 +24,6 @@ export default function Infos({ product, setActiveImg }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const { cart } = useSelector((state) => ({ ...state }));
-
   useEffect(() => {
     dispatch(hideDialog());
   }, []);
@@ -54,7 +53,7 @@ export default function Infos({ product, setActiveImg }) {
       return;
     } else {
       let _uid = `${data._id}_${product.style}_${router.query.size}`;
-      let exist = cart.cartItems.find((p) => p._uid === _uid);
+      let exist = cart?.cartItems?.find((p) => p._uid === _uid);
       if (exist) {
         let newCart = cart.cartItems.map((p) => {
           if (p._uid == exist._uid) {
