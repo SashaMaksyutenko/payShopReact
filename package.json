@@ -41,7 +41,8 @@
     "redux-thunk": "^3.1.0",
     "sass": "^1.77.8",
     "swiper": "^11.1.10",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "yup-phone-lite": "^2.0.1"
   },
   "devDependencies": {
     "eslint": "^8",
