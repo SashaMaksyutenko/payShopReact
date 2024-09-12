@@ -5,8 +5,12 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 import Head from 'next/head'
 import { SessionProvider } from 'next-auth/react'
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 let persistor = persistStore(store)
-export default function App ({ Component, pageProps:{session,...pageProps} }) {
+export default function App ({
+  Component,
+  pageProps: { session, ...pageProps }
+}) {
   return (
     <>
       <Head>
@@ -21,7 +25,12 @@ export default function App ({ Component, pageProps:{session,...pageProps} }) {
       <SessionProvider session={session}>
         <Provider store={store}>
           <PersistGate Loading={null} persistor={persistor}>
-            <Component {...pageProps} />
+            <PayPalScriptProvider
+              deferLoading={true}
+              options={{ 'client-id': process.env.PAYPAL_CLIENT_ID }}
+            >
+              <Component {...pageProps} />
+            </PayPalScriptProvider>
           </PersistGate>
         </Provider>
       </SessionProvider>
