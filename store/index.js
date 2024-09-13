@@ -5,7 +5,8 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import cart from "./cartSlice"
 import dialog from "./DialogSlice";
-const reducers=combineReducers({cart,dialog});
+import expandSidebar from "./ExpandSlice";
+const reducers=combineReducers({cart,dialog,expandSidebar});
 const config={
     key:'root',
     storage
@@ -18,7 +19,6 @@ const store=configureStore({
         getDefaultMiddleware({
           serializableCheck: false,
           thunk: {
-            
           }
         })
 });

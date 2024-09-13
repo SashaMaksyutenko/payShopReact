@@ -6,6 +6,8 @@ import { persistStore } from 'redux-persist'
 import Head from 'next/head'
 import { SessionProvider } from 'next-auth/react'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 let persistor = persistStore(store)
 export default function App ({
   Component,
@@ -29,6 +31,18 @@ export default function App ({
               deferLoading={true}
               options={{ 'client-id': process.env.PAYPAL_CLIENT_ID }}
             >
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+              />
               <Component {...pageProps} />
             </PayPalScriptProvider>
           </PersistGate>
