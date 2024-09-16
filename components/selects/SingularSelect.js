@@ -1,7 +1,6 @@
 import { MenuItem, TextField } from "@mui/material";
 import { ErrorMessage, useField } from "formik";
 import styles from "./styles.module.scss";
-
 export default function SingularSelect({
   data,
   handleChange,
