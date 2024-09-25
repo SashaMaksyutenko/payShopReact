@@ -9,7 +9,6 @@ const initialState = {
     link_text: "",
   },
 };
-
 export const DialogSlice = createSlice({
   name: "dialog",
   initialState,
@@ -28,7 +27,5 @@ export const DialogSlice = createSlice({
     },
   },
 });
-
 export const { showDialog, hideDialog } = DialogSlice.actions;
-
 export default DialogSlice.reducer;
