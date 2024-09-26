@@ -6,7 +6,7 @@
     "name": "Sasha",
     "email": "sasha.maksyutenko@gmail.com",
     "password": "$2b$12$Z9/kKBwrP9kOEErUl3Uh5OMwRBrSYIBIu5mQoSzP/YKPuly1HaXcK",
-    "role": "user",
+    "role": "admin",
     "image": "https://res.cloudinary.com/dmhcnhtng/image/upload/v1664642478/992490_b0iqzq.png",
     "emailVerified": false,
     "defaultPaymentMethod": "",
